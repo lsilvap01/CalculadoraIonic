@@ -1,0 +1,127 @@
+<md-toolbar>
+<div class="md-toolbar-tools">
+	<!-- <md-button aria-label="Go Back">
+	  Go Back
+	</md-button> -->
+
+	<md-truncate class="page-title">Taqe Calculator</md-truncate>
+
+	<span flex></span>
+	<md-button class="md-raised" aria-label="History" ng-href="#!/history">
+	  History
+	</md-button>
+</div>
+</md-toolbar>
+
+
+<md-content class="md-padding" flex>
+	
+	<div class="panel">
+		<span class="numbers-display">
+			{{currentCalc.firstNumber}}
+		</span>
+		<div class="clear-both">
+			<span class="operation-display">{{currentCalc.operator}}</span> 
+			<span class="numbers-display">{{currentCalc.secondNumber}}</span>
+		</div>
+		<div class="clear-both" ng-show="shouldShowResult">
+			<span class="operation-display">=</span> 
+			<span class="numbers-display">{{currentCalc.result}}</span>
+		</div>
+	</div>
+
+	<md-grid-list
+        md-cols-gt-md="4" md-cols="4" md-cols-md="4"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px">
+      	
+      	<md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(1)">
+	      1
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(2)">
+	      2
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(3)">
+	      3
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button operation"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="setOperator('*')">
+	      *
+	    </md-grid-tile>
+
+
+
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(4)">
+	      4
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(5)">
+	      5
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(6)">
+	      6
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button operation"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="setOperator('+')">
+	      +
+	    </md-grid-tile>
+
+
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(7)">
+	      7
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(8)">
+	      8
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(9)">
+	      9
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button operation"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="setOperator('-')">
+	      -
+	    </md-grid-tile>
+
+
+	    <md-grid-tile class="calc-button"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="addDigit(0)">
+	      0
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button action"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="clearAll()">
+	      AC
+	    </md-grid-tile>
+	    <md-grid-tile class="calc-button clear"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="erasePrevious()">
+	      &lt;=
+	    </md-grid-tile>
+      	<md-grid-tile class="calc-button action"
+	        md-rowspan="1" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1"
+	        ng-click="evalOperation()">
+	      =
+	    </md-grid-tile>
+    </md-grid-list>
+
+</md-content>

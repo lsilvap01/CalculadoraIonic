@@ -1,0 +1,41 @@
+<div>
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<md-button aria-label="Go Back" ng-href="#!/">
+			  Go Back
+			</md-button>
+
+			<md-truncate class="page-title">Calculations history</md-truncate>
+
+			<span flex></span>
+			<md-button class="md-raised" aria-label="Clear all" ng-click="clearHistory()">
+			  Clear all
+			</md-button>
+		</div>
+	</md-toolbar>
+
+
+	<md-content class="md-padding" flex>	
+		<md-list ng-cloak>
+		  <md-list-item id="historyList" ng-repeat="calc in calcList()" ng-click="setCalculator(calc)" class="noright">
+		    <div class="md-list-item-text">
+		    	<div class="panel-list">
+					<span class="numbers-display-list">
+						{{calc.firstNumber}} 
+					</span>
+					<div class="clear-both">
+						<span class="operation-display-list">{{calc.operator}}</span> 
+						<span class="numbers-display-list">{{calc.secondNumber}}</span>
+					</div>
+					<div class="clear-both">
+						<span class="operation-display-list">=</span> 
+						<span class="numbers-display-list">{{calc.result}}</span>
+					</div>
+				</div>
+		    </div>
+		    <md-divider inset></md-divider>
+		  </md-list-item>
+		</md-list>
+		<h2 ng-show="calcList().length == 0" class="empty-list">No history yet :(</h2>
+	</md-content>
+</div>
